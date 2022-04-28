@@ -5,6 +5,8 @@ VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Raffle", "Raffle\Raffle.csproj", "{8A34EAEF-00EF-4900-88F4-DA450DB23FAB}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{86B90A46-E84B-4852-9F6D-5FAA6CA966F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{8A34EAEF-00EF-4900-88F4-DA450DB23FAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A34EAEF-00EF-4900-88F4-DA450DB23FAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A34EAEF-00EF-4900-88F4-DA450DB23FAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86B90A46-E84B-4852-9F6D-5FAA6CA966F5}.Debug|Any CPU.ActiveCfg = Debug
+		{86B90A46-E84B-4852-9F6D-5FAA6CA966F5}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
