@@ -107,5 +107,12 @@ namespace Raffle.Test
 
             return Function.reader.HasRows ? true : false;
         }
+
+        private void btnGoToRaffle_Click(object sender, EventArgs e)
+        {
+            var raffle = new Test2();
+            raffle.Show();
+            Hide();
+        }
     }
 }

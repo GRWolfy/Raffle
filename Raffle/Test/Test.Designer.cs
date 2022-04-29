@@ -40,6 +40,7 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSaveToDatabase = new System.Windows.Forms.Button();
+            this.btnGoToRaffle = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.datagridviewRaffle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datagridStudents)).BeginInit();
             this.SuspendLayout();
@@ -141,11 +142,22 @@
             this.btnSaveToDatabase.UseVisualStyleBackColor = true;
             this.btnSaveToDatabase.Click += new System.EventHandler(this.btnSaveToDatabase_Click);
             // 
+            // btnGoToRaffle
+            // 
+            this.btnGoToRaffle.Location = new System.Drawing.Point(713, 12);
+            this.btnGoToRaffle.Name = "btnGoToRaffle";
+            this.btnGoToRaffle.Size = new System.Drawing.Size(75, 23);
+            this.btnGoToRaffle.TabIndex = 7;
+            this.btnGoToRaffle.Text = "Go To Raffle";
+            this.btnGoToRaffle.UseVisualStyleBackColor = true;
+            this.btnGoToRaffle.Click += new System.EventHandler(this.btnGoToRaffle_Click);
+            // 
             // Test
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnGoToRaffle);
             this.Controls.Add(this.btnSaveToDatabase);
             this.Controls.Add(this.datagridStudents);
             this.Controls.Add(this.label1);
@@ -176,5 +188,6 @@
         private DataGridViewTextBoxColumn Column5;
         private DataGridViewTextBoxColumn Column6;
         private Button btnSaveToDatabase;
+        private Button btnGoToRaffle;
     }
 }
