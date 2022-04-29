@@ -1,22 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using ExcelDataReader;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Data.OleDb;
 using System.Data.SqlClient;
-using ExcelDataReader;
+using System.Text;
 
 namespace Raffle.Test
 {
     public partial class Test : Form
     {
-        const int MAX_COL = 6;
-
         public Test()
         {
             InitializeComponent();
@@ -69,7 +59,8 @@ namespace Raffle.Test
             viewStudents(datagridviewRaffle.Rows.Count);
         }
 
-        public void viewStudents(int count) {
+        public void viewStudents(int count)
+        {
             for (int i = 1; i < count; i++)
             {
                 datagridStudents.Rows.Add(datagridviewRaffle.Rows[i].Cells[0].Value.ToString(),
@@ -94,14 +85,27 @@ namespace Raffle.Test
                 string yearlevel = datagridStudents.Rows[i].Cells[4].Value.ToString();
                 string campus = datagridStudents.Rows[i].Cells[5].Value.ToString();
 
-                Connection.DB();
-                Function.gen = "INSERT INTO students(idnumber, firstname, lastname, course, yearlevel, campus) VALUES('" + idnumber + "', '" + firstname + "', '" + lastname + "', '" + course + "', '" + yearlevel + "', '" + campus + "')";
-                Function.command = new SqlCommand(Function.gen, Connection.con);
-                Function.command.ExecuteNonQuery();
-                Connection.con.Close();
+                if (!isAlreadyExist(idnumber))
+                {
+                    Connection.DB();
+                    Function.gen = "INSERT INTO students(idnumber, firstname, lastname, course, yearlevel, campus) VALUES('" + idnumber + "', '" + firstname + "', '" + lastname + "', '" + course + "', '" + yearlevel + "', '" + campus + "')";
+                    Function.command = new SqlCommand(Function.gen, Connection.con);
+                    Function.command.ExecuteNonQuery();
+                    Connection.con.Close();
+                }
             }
 
             MessageBox.Show("Students information saved to database.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        public Boolean isAlreadyExist(int idnumber)
+        {
+            Connection.DB();
+            Function.gen = "SELECT * FROM students WHERE username = '" + idnumber + "' ";
+            Function.command = new SqlCommand(Function.gen, Connection.con);
+            Function.reader = Function.command.ExecuteReader();
+
+            return Function.reader.HasRows ? true : false;
         }
     }
 }
