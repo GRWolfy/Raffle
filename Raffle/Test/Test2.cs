@@ -47,20 +47,18 @@ namespace Raffle.Test
 
         private string getName(int idnumber)
         {
-            string fullname = "";
-
             Connection.DB();
-            Function.gen = "SELECT DISTINCT * FROM students";
+            Function.gen = "SELECT * FROM students WHERE idnumber = '"+ idnumber +"' ";
             Function.command = new SqlCommand(Function.gen, Connection.con);
             Function.reader = Function.command.ExecuteReader();
 
             if (Function.reader.HasRows)
             {
                 Function.reader.Read();
-                fullname = Function.reader["firstname"].ToString() + " " + Function.reader["lastname"].ToString();
+                return Function.reader["firstname"].ToString() + " " + Function.reader["lastname"].ToString();
             }
 
-            return fullname;
+            return null;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
