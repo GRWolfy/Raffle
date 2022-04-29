@@ -101,9 +101,10 @@ namespace Raffle.Test
         public Boolean isAlreadyExist(int idnumber)
         {
             Connection.DB();
-            Function.gen = "SELECT * FROM students WHERE username = '" + idnumber + "' ";
+            Function.gen = "SELECT * FROM students WHERE idnumber = '" + idnumber + "' ";
             Function.command = new SqlCommand(Function.gen, Connection.con);
             Function.reader = Function.command.ExecuteReader();
+            Function.reader.Read();
 
             return Function.reader.HasRows ? true : false;
         }
